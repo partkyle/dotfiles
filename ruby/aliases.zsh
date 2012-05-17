@@ -5,3 +5,11 @@ alias sg='script/generate'
 alias sd='script/destroy'
 
 alias migrate='rake db:migrate db:test:clone'
+
+# pow restart
+alias rst='touch tmp/restart.txt'
+
+# bundler
+alias be='bundle exec'
+alias bi='bundle install'
+alias bu='bundle update'
