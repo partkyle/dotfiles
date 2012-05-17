@@ -2,79 +2,78 @@ autoload colors && colors
 # cheers, @ehrenmurdick
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
-git_branch() {
-  echo $(/usr/bin/git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
-}
-
-git_dirty() {
-  st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
-  if [[ $st == "" ]]
-  then
-    echo ""
-  else
-    if [[ $st == "nothing to commit (working directory clean)" ]]
+git_prompt_quick() {
+  local g="$(git rev-parse --git-dir 2>/dev/null)"
+  if [ -n "$g" ]; then
+    local r
+    local b
+    if [ -d "$g/../.dotest" ]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      if test -f "$g/../.dotest/rebasing"
+      then
+        r="|REBASE"
+      elif test -f "$g/../.dotest/applying"
+      then
+        r="|AM"
+      else
+        r="|AM/REBASE"
+      fi
+      b="$(git symbolic-ref HEAD 2>/dev/null)"
+    elif [ -f "$g/.dotest-merge/interactive" ]
+    then
+      r="|REBASE-i"
+      b="$(cat "$g/.dotest-merge/head-name")"
+    elif [ -d "$g/.dotest-merge" ]
+    then
+      r="|REBASE-m"
+      b="$(cat "$g/.dotest-merge/head-name")"
+    elif [ -f "$g/MERGE_HEAD" ]
+    then
+      r="|MERGING"
+      b="$(git symbolic-ref HEAD 2>/dev/null)"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      if [ -f "$g/BISECT_LOG" ]
+      then
+        r="|BISECTING"
+      fi
+      if ! b="$(git symbolic-ref HEAD 2>/dev/null)"
+      then
+        if ! b="tag: $(git describe --exact-match HEAD 2>/dev/null)"
+        then
+          b="$(cut -c1-7 "$g/HEAD")..."
+        fi
+      fi
+    fi
+
+    if [ -n "$1" ]; then
+      echo "$1" "${b##refs/heads/}$r"
+    else
+      echo "%{$fg[yellow]%}%s" "${b##refs/heads/}$r"
     fi
   fi
 }
 
-git_prompt_info () {
- ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
- echo "${ref#refs/heads/}"
+directory_name() {
+  echo "%{$fg_bold[cyan]%}${PWD/#$HOME/~}%{$reset_color%}"
 }
 
-unpushed () {
-  /usr/bin/git cherry -v @{upstream} 2>/dev/null
-}
-
-need_push () {
-  if [[ $(unpushed) == "" ]]
-  then
-    echo " "
+prompt_color() {
+  if [[ "$HOST" =~ 'kyle-sg.*' ]]; then
+    echo "%{$fg[green]%}"
+  elif [[ "$HOST" == 'sendgrid' ]]; then
+    echo "%{$fg_bold[magenta]%}"
   else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
+    echo "%{$fg[blue]%}"
   fi
 }
 
-rb_prompt(){
-  if $(which rbenv &> /dev/null)
-  then
-	  echo "%{$fg_bold[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
-	else
-	  echo ""
-  fi
+host_name() {
+  echo "$(prompt_color)%m%{$reset_color%}"
 }
 
-# This keeps the number of todos always available the right hand side of my
-# command line. I filter it to only count those tagged as "+next", so it's more
-# of a motivation to clear out the list.
-todo(){
-  if $(which todo.sh &> /dev/null)
-  then
-    num=$(echo $(todo.sh ls +next | wc -l))
-    let todos=num-2
-    if [ $todos != 0 ]
-    then
-      echo "$todos"
-    else
-      echo ""
-    fi
-  else
-    echo ""
-  fi
-}
-
-directory_name(){
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
-}
-
-export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=" $(prompt_color)%%› %{$reset_color%}"
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
+  export RPROMPT="$(directory_name)$(git_prompt_quick) $(host_name)"
 }
 
 precmd() {
