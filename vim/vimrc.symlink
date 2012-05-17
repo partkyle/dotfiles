@@ -16,6 +16,8 @@ set nosmarttab             " fuck tabs
 set formatoptions+=n       " support for numbered/bullet lists
 "set textwidth=80           " wrap at 80 chars by default
 set virtualedit=block      " allow virtual edit in visual block ..
+" show trailing spaces
+set list listchars=tab:\ \ ,trail:·
 
 " ----------------------------------------------------------------------------
 "  Remapping
@@ -44,6 +46,9 @@ vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
+map <leader><leader> :CommandT<CR>
+map <leader>/ :CommandTFlush<CR>
+
 " ----------------------------------------------------------------------------
 "  UI
 " ----------------------------------------------------------------------------
@@ -54,7 +59,6 @@ set nolazyredraw           " turn off lazy redraw
 set number                 " line numbers
 set wildmenu               " turn on wild menu
 set wildmode=list:longest,full
-set ch=2                   " command line height
 set backspace=2            " allow backspacing over everything in insert mode
 set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=filtIoOA     " shorten messages
