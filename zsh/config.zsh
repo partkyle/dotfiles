@@ -9,6 +9,13 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+# print elapsed time when more than 10 seconds
+REPORTTIME=10
+
+# options taken from oh-my-zsh
+unsetopt menu_complete   # do not autoselect the first completion entry
+unsetopt flowcontrol     # gets rid of ctrl-s and ctrl-q
+
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
 setopt NO_LIST_BEEP
