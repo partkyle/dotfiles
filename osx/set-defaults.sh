@@ -18,3 +18,6 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
+
+# Use the old style dock
+defaults write com.apple.dock no-glass -boolean YES
