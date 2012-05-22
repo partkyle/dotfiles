@@ -18,3 +18,19 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
+
+# Show scrollbars only when scrolling (not sure if this one works)
+defaults write -g AppleShowScrollBars -string WhenScrolling
+
+# Add the double click minize behavior
+defaults write -g AppleMiniaturizeOnDoubleClick -int 1
+
+# Key repeat settings
+defaults write -g InitialKeyRepeat -int 25
+defaults write -g KeyRepeat -int 2
+
+# Enable "Natural" mouse scrolling
+defaults write -g com.apple.swipescrolldirection -int 0
+
+# Use function keys like normal (I play games too Apple!)
+defaults write -g com.apple.keyboard.fnState -int 1
