@@ -58,7 +58,7 @@ directory_name() {
 }
 
 prompt_color() {
-  if [[ "$HOST" =~ 'kyle-sg.*' ]]; then
+  if [[ "`uname`" == 'Darwin' ]]; then
     echo "%{$fg[green]%}"
   elif [[ "$HOST" == 'sendgrid' ]]; then
     echo "%{$fg_bold[magenta]%}"
