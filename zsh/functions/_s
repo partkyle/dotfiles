@@ -1,2 +1,2 @@
 #compdef s
-_files -W /home/sendgrid -/
+_files -W $SENDGRID_DIR -/

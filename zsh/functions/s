@@ -1,1 +1,1 @@
-cd /home/sendgrid/$1;
+cd $SENDGRID_DIR/$1;
