@@ -1,16 +1,17 @@
-// Settings in here override those in "Default/Base File.sublime-settings", and
-// are overridden in turn by file type specific settings. Place your settings
-// here, to ensure they're preserved when upgrading.
 {
-  "vintage_start_in_command_mode": true,
+  // UI Settings
+  "color_scheme": "Packages/User/Tomorrow Theme/Tomorrow-Night.tmTheme",
+  "highlight_line": true,
+  "find_selected_text": true,
+
+  // Font Settings
+  "font_face": "Meslo LG M DZ",
+  "font_size": 11,
+
+  // Tab/Spaces settings
   "tab_size": 2,
   "translate_tabs_to_spaces": true,
-  "drawWhiteSpace": true,
-  "matchBracketsAngle": true,
-  "matchBracketsBraces": true,
-  "matchBracketsSquare": true,
-  "rulers": [ 80 ],
-  "show_minimap": false,
-  "trimTrailingWhiteSpaceOnSave": true,
-  "highlight_modified_tabs": true
+
+  // Only Use Unix Line Endings
+  "default_line_ending": "unix"
 }
