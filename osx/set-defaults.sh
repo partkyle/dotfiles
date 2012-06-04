@@ -19,7 +19,11 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
+# Use the 2D dock
 defaults write com.apple.dock no-glass -boolean YES
+
+# use the "suck" minimze effect
+defaults write com.apple.dock mineffect -string suck
 
 # Show scrollbars only when scrolling (not sure if this one works)
 defaults write -g AppleShowScrollBars -string WhenScrolling
