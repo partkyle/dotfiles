@@ -16,6 +16,9 @@
   { "keys": ["ctrl+x", "ctrl+c"], "command": "exit"},
   { "keys": ["ctrl+x", "ctrl+s"], "command": "save"},
 
+  // command
+  { "keys": ["alt+x"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
+
   // begginning and end of line
   { "keys": ["ctrl+a"], "command": "move_to", "args": {"to": "bol", "extend": false} },
   { "keys": ["ctrl+shift+a"], "command": "move_to", "args": {"to": "bol", "extend": true} },
