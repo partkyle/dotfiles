@@ -40,3 +40,6 @@ defaults write -g com.apple.swipescrolldirection -int 0
 
 # Use function keys like normal (I play games too Apple!)
 defaults write -g com.apple.keyboard.fnState -int 1
+
+# disable the dashboard
+defaults write com.apple.dashboard mcx-disabled -boolean YES
