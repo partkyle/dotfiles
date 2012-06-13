@@ -1,2 +1,5 @@
 vim/vim.symlink/.netrwhist
 git/gitconfig.symlink
+
+# pathogen docs
+vim/**/bundle/**/doc
