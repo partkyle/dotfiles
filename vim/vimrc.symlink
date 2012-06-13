@@ -107,6 +107,18 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CommandT configuration
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if version > 730
+  let g:CommandTCancelMap=['<Esc>', '<C-c>', '<C-g>']
+end
+let g:CommandTMaxHeight=10
+let g:CommandTMinHeight=10
+map <Leader><Leader> :CommandT<CR>
+map <Leader>. :CommandTBuffer<CR>
+map <Leader>/ :CommandTFlush<CR>:CommandT<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Unimpaired configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bubble single lines
