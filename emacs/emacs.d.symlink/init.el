@@ -1,10 +1,5 @@
-;; (push "/usr/local/bin" exec-path)
-(add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/internet")
-
-;; the bell is evil
-(setq ring-bell-function 'ignore)
-
+;; this needs to run first for when I eventually
+;; break something
 (global-set-key
  [f7]
  (lambda () (interactive)
@@ -17,21 +12,55 @@
  [f9]
  'jmc-eval-to-here)
 
-;; Packaging
-(setq package-archives
-      '(("ELPA" . "http://tromey.com/elpa/")
-        ("gnu" . "http://elpa.gnu.org/packages/")
-        ("marmalade" . "http://marmalade-repo.org/packages/")))
+(push "/usr/local/bin" exec-path)
+(add-to-list 'load-path "~/.emacs.d")
+
+;; the bell is evil
+(setq ring-bell-function 'ignore)
+
+;; make sure all packages are loaded
+(require 'cl)
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
+;; preinstall some packages
+(defvar prelude-packages
+  '(ack-and-a-half auctex clojure-mode coffee-mode deft expand-region
+                   gist groovy-mode haml-mode haskell-mode inf-ruby
+                   magit magithub markdown-mode paredit projectile python
+                   sass-mode rainbow-mode scss-mode solarized-theme tango-2-theme
+                   volatile-highlights yaml-mode yari zenburn-theme)
+  "A list of packages to ensure are installed at launch.")
+
+(defun prelude-packages-installed-p ()
+  (loop for p in prelude-packages
+        when (not (package-installed-p p)) do (return nil)
+        finally (return t)))
+
+(unless (prelude-packages-installed-p)
+  ;; check for new packages (package versions)
+  (message "%s" "Emacs Prelude is now refreshing its package database...")
+  (package-refresh-contents)
+  (message "%s" " done.")
+  ;; install the missing packages
+  (dolist (p prelude-packages)
+    (when (not (package-installed-p p))
+      (package-install p))))
+
+(provide 'prelude-packages)
 
 ;; look and feel
 (if window-system
     (progn
-      (set-frame-font "Meslo LG M DZ-14")
+      (set-frame-font "Droid Sans Mono-14")
       (delete-selection-mode t)
       (tool-bar-mode -1)
-      (blink-cursor-mode -1)))
+      (blink-cursor-mode -1)
+      (load-theme 'wombat t)))
 
-
+(setq inhibit-startup-message t)
 (set-fringe-style -1)
 (show-paren-mode t)
 (column-number-mode t)
@@ -43,9 +72,6 @@
                      (count-lines (point-min) (point-max)))))
          (linum-format (concat "%" (number-to-string w) "d ")))
     ad-do-it))
-
-;; no starup message
-(setq inhibit-startup-message t)
 
 ;; no visual bell
 (setq ring-bell-function 'ignore)
@@ -69,12 +95,6 @@
   (ido-mode t)
   (setq ido-max-directory-size 10000
         Ido-enable-flex-matching t)) ;; enable fuzzy matching
-
-;; language settings
-(require 'haml-mode nil 'noerror)
-(require 'coffee-mode nil 'noerror)
-(require 'less-css-mode nil 'noerror)
-(require 'php-mode nil 'noerror)
 
 ;; ruby-electric-mode for ruby scripts
 (add-hook 'ruby-mode-hook
