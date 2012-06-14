@@ -24,13 +24,16 @@
 (package-initialize)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("ELPA" . "http://tromey.com/elpa/") t)
 
 ;; preinstall some packages
 (defvar prelude-packages
   '(ack-and-a-half auctex clojure-mode coffee-mode deft expand-region
                    gist groovy-mode haml-mode haskell-mode inf-ruby
                    magit magithub markdown-mode paredit projectile python
-                   sass-mode rainbow-mode scss-mode solarized-theme tango-2-theme
+                   sass-mode rainbow-mode ruby-electric scss-mode
+                   solarized-theme tango-2-theme
                    volatile-highlights yaml-mode yari zenburn-theme)
   "A list of packages to ensure are installed at launch.")
 
@@ -54,7 +57,7 @@
 ;; look and feel
 (if window-system
     (progn
-      (set-frame-font "Droid Sans Mono-14")
+      (set-frame-font "Melso LG M DZ-14")
       (delete-selection-mode t)
       (tool-bar-mode -1)
       (blink-cursor-mode -1)
