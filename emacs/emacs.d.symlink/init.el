@@ -2,6 +2,9 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/internet")
 
+;; the bell is evil
+(setq ring-bell-function 'ignore)
+
 (global-set-key
  [f7]
  (lambda () (interactive)
@@ -22,24 +25,29 @@
 
 ;; look and feel
 (if window-system
-    (then
-     (set-frame-font "Meslo LG M DZ-14")
-     (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
-     (delete-selection-mode t)
-     (scroll-bar-mode -1)
-     (tool-bar-mode -1)
-     (blink-cursor-mode -1)))
+    (progn
+      (set-frame-font "Meslo LG M DZ-14")
+      (delete-selection-mode t)
+      (tool-bar-mode -1)
+      (blink-cursor-mode -1)))
 
 
+(set-fringe-style -1)
 (show-paren-mode t)
 (column-number-mode t)
-(set-fringe-style -1)
-(tooltip-mode -1)
 
-; no starup message
+;; line numbers don't have to be ugly
+(global-linum-mode 1)
+(defadvice linum-update-window (around linum-dynamic activate)
+  (let* ((w (length (number-to-string
+                     (count-lines (point-min) (point-max)))))
+         (linum-format (concat "%" (number-to-string w) "d ")))
+    ad-do-it))
+
+;; no starup message
 (setq inhibit-startup-message t)
 
-; no visual bell
+;; no visual bell
 (setq ring-bell-function 'ignore)
 
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -67,3 +75,9 @@
 (require 'coffee-mode nil 'noerror)
 (require 'less-css-mode nil 'noerror)
 (require 'php-mode nil 'noerror)
+
+;; ruby-electric-mode for ruby scripts
+(add-hook 'ruby-mode-hook
+      (lambda ()
+        (require 'ruby-electric)
+        (ruby-electric-mode t)))
