@@ -3,3 +3,5 @@ git/gitconfig.symlink
 
 # pathogen docs
 vim/**/bundle/**/doc
+
+emacs/**/elpa
