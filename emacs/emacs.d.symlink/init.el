@@ -31,9 +31,9 @@
 (defvar prelude-packages
   '(ack-and-a-half auctex clojure-mode coffee-mode deft expand-region
                    gist groovy-mode haml-mode haskell-mode inf-ruby
-                   magit magithub markdown-mode paredit projectile python
-                   sass-mode rainbow-mode ruby-electric scss-mode
-                   solarized-theme tango-2-theme
+                   magit magithub markdown-mode paredit php-mode
+                   projectile python sass-mode rainbow-mode
+                   ruby-electric scss-mode solarized-theme tango-2-theme
                    volatile-highlights yaml-mode yari zenburn-theme)
   "A list of packages to ensure are installed at launch.")
 
