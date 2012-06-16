@@ -1,7 +1,11 @@
 vim/vim.symlink/.netrwhist
+vim/vim.symlink/undo
 git/gitconfig.symlink
 
 # pathogen docs
 vim/**/bundle/**/doc
 
 emacs/**/elpa
+emacs/**/auto-save-list
+emacs/**/tramp
+emacs/**/url
