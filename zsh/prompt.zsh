@@ -72,11 +72,4 @@ host_name() {
 }
 
 export PROMPT=" $(prompt_color)%%› %{$reset_color%}"
-set_prompt () {
-  export RPROMPT="$(directory_name)$(git_prompt_quick) $(host_name)"
-}
-
-precmd() {
-  title "zsh" "%m" "%55<...<%~"
-  set_prompt
-}
+export RPROMPT='$(directory_name)$(git_prompt_quick) $(host_name)'
