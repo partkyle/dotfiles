@@ -54,7 +54,7 @@ git_prompt_quick() {
 }
 
 directory_name() {
-  echo "%{$fg[blue]%}${PWD/#$HOME/~}%{$reset_color%}"
+  echo "%{$fg[cyan]%}${PWD/#$HOME/~}%{$reset_color%}"
 }
 
 prompt_color() {
