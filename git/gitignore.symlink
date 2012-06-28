@@ -6,3 +6,4 @@
 *.rbc
 .rake_tasks~
 bin/
+*.pyc
