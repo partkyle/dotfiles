@@ -39,14 +39,15 @@ setopt HIST_REDUCE_BLANKS
 
 # key bindings
 bindkey -e
-bindkey '^[^[[D' backward-word
-bindkey '^[^[[C' forward-word
-bindkey '^[[5D' beginning-of-line
-bindkey '^[[5C' end-of-line
-bindkey '^[[3~' delete-char
-bindkey '^[^N' newtab
-bindkey '^?' backward-delete-char
-bindkey '^r' history-incremental-search-backward
+WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
+# bindkey '^[^[[D' backward-word
+# bindkey '^[^[[C' forward-word
+# bindkey '^[[5D' beginning-of-line
+# bindkey '^[[5C' end-of-line
+# bindkey '^[[3~' delete-char
+# bindkey '^[^N' newtab
+# bindkey '^?' backward-delete-char
+# bindkey '^r' history-incremental-search-backward
 
 # make search up and down work, so partially type and hit up/down to find relevant stuff
 bindkey '^[[A' up-line-or-search
