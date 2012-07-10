@@ -12,3 +12,4 @@ git subtree add --prefix vim/vim.symlink/bundle/vim-tomorrow-theme https://githu
 git subtree add --prefix vim/vim.symlink/bundle/vim-coffee-script https://github.com/kchmck/vim-coffee-script.git master --no-commit
 git subtree add --prefix vim/vim.symlink/bundle/vim-coffee-script https://github.com/kchmck/vim-coffee-script.git master
 git subtree add --squash -P vim/vim.symlink/bundle/neocomplcache git@github.com:Shougo/neocomplcache.git master
+git subtree add --squash -P vim/vim.symlink/bundle/vim-taglist git@github.com:clones/vim-taglist.git master
