@@ -1,126 +1,69 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" pathogen config
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call pathogen#infect()
 call pathogen#helptags()
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" basic settings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
-" bye, bye, vi
 set nocompatible
-" line numbers
 set number
 set ruler
 syntax on
+set hidden
 set encoding=utf-8
-" Whitespace stuff
 set nowrap
-" tab settings
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-" show trailing spaces
 set list listchars=tab:\ \ ,trail:·
-" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-" Status bar
 set laststatus=2
-" Searching
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-" Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
-" Automatically read changed files
 set autoread
-" unix filetypes
 set ff=unix
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" if the terminal is in solarized mode
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" default to solarized light
+filetype plugin indent on
+
+nnoremap ; :
+nnoremap j gj
+nnoremap j gj
+
 set bg=light
-" set the special diffmode
 let g:solarized_diffmode="high"
-" set the colorscheme
 colorscheme solarized
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remember last location in file
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal g'\"" | endif
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" function to automatically wrap long lines
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function s:setupWrapping()
   set wrap
   set wrapmargin=2
   set textwidth=72
 endfunction
+autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" add json syntax highlighting
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile,BufRead *.json set ft=javascript
+autocmd BufNewFile,BufRead *.json set ft=javascript
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" text files have automatic wrapping
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufRead,BufNewFile *.txt call s:setupWrapping()
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" load the plugin and indent settings for the detected filetype
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype plugin indent on
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" open file helpers
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Inserts the path of the currently edited file into a command
-" Command mode: Ctrl+P
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CommandT configuration
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if version > 730
-  let g:CommandTCancelMap=['<Esc>', '<C-c>', '<C-g>']
-end
 let g:CommandTMaxHeight=10
 let g:CommandTMinHeight=10
 map <Leader><Leader> :CommandT<CR>
 map <Leader>. :CommandTBuffer<CR>
 map <Leader>/ :CommandTFlush<CR>:CommandT<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Unimpaired configuration
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
@@ -133,21 +76,15 @@ vmap <C-k> [egv
 vmap <C-j> ]egv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" gist-vim defaults
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("mac")
-  let g:gist_clip_command = 'pbcopy'
-elseif has("unix")
-  let g:gist_clip_command = 'xclip -selection clipboard'
-endif
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Directories for swp files
+" Directories for swp and undo files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set directory=/tmp
+try
+  set undofile
+  set undolevels=1000  "maximum number of changes that can be undone
+  set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+catch
+endtry
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " % to bounce from do to end etc.
@@ -169,8 +106,6 @@ cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 " jj to escape in insert mode.
 inoremap jj <Esc>
-" remap the quit command
-nmap QQ ZQ
 " ,f to search project
 nmap <leader>f :Ack ""<Left>
 " git (fugitive) commands
@@ -193,8 +128,53 @@ if has("gui_running")
   autocmd VimResized * wincmd =
 endif
 
-" python only setup
-if !exists("autocommands_loaded")
-  let autocommands_loaded = 1
-  autocmd BufRead,BufNewFile,FileReadPost *.py source ~/.vim/lang/python
+set statusline=%<%f\ %h%m%r%<%{fugitive#statusline()}\ %=%-14.(%l,%c%V%)\ %P
+
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+if !exists('g:neocomplcache_keyword_patterns')
+  let g:neocomplcache_keyword_patterns = {}
 endif
+
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <expr><CR>  neocomplcache#close_popup() . "\<CR>"
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'

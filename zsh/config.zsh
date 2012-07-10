@@ -39,7 +39,7 @@ setopt HIST_REDUCE_BLANKS
 
 # key bindings
 bindkey -e
-WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
+WORDCHARS="*?_-.[]~&;!#$%^(){}<>"
 # bindkey '^[^[[D' backward-word
 # bindkey '^[^[[C' forward-word
 # bindkey '^[[5D' beginning-of-line
