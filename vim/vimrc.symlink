@@ -27,6 +27,10 @@ set ff=unix
 
 filetype plugin indent on
 
+nnoremap ; :
+nnoremap j gj
+nnoremap j gj
+
 set bg=light
 let g:solarized_diffmode="high"
 colorscheme solarized
