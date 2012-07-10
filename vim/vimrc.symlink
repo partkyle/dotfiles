@@ -147,22 +147,7 @@ let g:gist_open_browser_after_post = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Directories for swp files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-try
-  set backupdir=/tmp/vim/backup
-  set directory=/tmp/vim/backup
-catch
-endtry
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Directory for undo tracking
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-try
-  set undodir=/tmp/vim/undo
-  set undofile
-  set undolevels=1000  "maximum number of changes that can be undone
-  set undoreload=10000 "maximum number lines to save for undo on a buffer reload
-catch
-endtry
+set directory=/tmp
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " % to bounce from do to end etc.
@@ -213,3 +198,5 @@ if !exists("autocommands_loaded")
   let autocommands_loaded = 1
   autocmd BufRead,BufNewFile,FileReadPost *.py source ~/.vim/lang/python
 endif
+
+set statusline=%<%f\ %h%m%r%<%{fugitive#statusline()}\ %=%-14.(%l,%c%V%)\ %P
