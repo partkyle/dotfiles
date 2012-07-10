@@ -71,5 +71,5 @@ host_name() {
   echo "$(prompt_color)%m%{$reset_color%}"
 }
 
-export PROMPT=" $(prompt_color)%%› %{$reset_color%}"
+export PROMPT=" $(prompt_color)%# %{$reset_color%}"
 export RPROMPT='$(directory_name)$(git_prompt_quick) $(host_name)'
