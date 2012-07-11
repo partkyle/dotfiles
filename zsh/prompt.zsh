@@ -58,12 +58,10 @@ directory_name() {
 }
 
 prompt_color() {
-  if [[ "`uname`" == 'Darwin' ]]; then
-    echo "%{$fg[green]%}"
-  elif [[ "$HOST" == 'sendgrid' ]]; then
+  if [[ -n $SSH_CONNECTION ]]; then
     echo "%{$fg_bold[magenta]%}"
   else
-    echo "%{$fg[blue]%}"
+    echo "%{$fg[green]%}"
   fi
 }
 
