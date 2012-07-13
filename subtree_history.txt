@@ -1,1 +1,18 @@
+git subtree add --prefix vim/vim.symlink/bundle/Command-T https://github.com/wincent/Command-T.git master
+git subtree add --prefix Color-Sampler-Pack https://github.com/vim-scripts/Color-Sampler-Pack.git master
+git subtree add --prefix vim/vim.symlink/bundle/Color-Sampler-Pack https://github.com/vim-scripts/Color-Sampler-Pack.git master
+git subtree add --prefix vim/vim.symlink/bundle/Gundo https://github.com/vim-scripts/Gundo.git master
+git subtree add --prefix vim/vim.symlink/bundle/supertab https://github.com/ervandew/supertab.git master
+git subtree add --prefix vim/vim.symlink/bundle/vim-fugitive https://github.com/tpope/vim-fugitive.git master
+git subtree add --prefix vim/vim.symlink/bundle/tomdoc.vim https://github.com/duwanis/tomdoc.vim.git master
+git subtree add --prefix vim/vim.symlink/bundle/vim-colors-solarized https://github.com/altercation/vim-colors-solarized.git master
+git subtree add --prefix vim/vim.symlink/bundle/vim-surround https://github.com/tpope/vim-surround.git master
+git subtree add --prefix vim/vim.symlink/bundle/vim-unimpaired https://github.com/tpope/vim-unimpaired.git master
+git subtree add --prefix vim/vim.symlink/bundle/vim-tomorrow-theme https://github.com/chriskempson/vim-tomorrow-theme.git master
+git subtree add --prefix vim/vim.symlink/bundle/vim-coffee-script https://github.com/kchmck/vim-coffee-script.git master --no-commit
+git subtree add --prefix vim/vim.symlink/bundle/vim-coffee-script https://github.com/kchmck/vim-coffee-script.git master
+git subtree add --squash -P vim/vim.symlink/bundle/neocomplcache git@github.com:Shougo/neocomplcache.git master
+git subtree add --squash -P vim/vim.symlink/bundle/vim-taglist git@github.com:clones/vim-taglist.git master
+git subtree add --squash -P vim/vim.symlink/bundle/vim-powerline git@github.com:Lokaltog/vim-powerline.git develop
 git subtree add --squash -P vim/vim.symlink/bundle/ack.vim git@github.com:vim-scripts/ack.vim.git master
+rm -rf vim/vim.symlink/bundle/vim-powerline
