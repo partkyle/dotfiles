@@ -139,6 +139,7 @@ imap <C-k> <C-o>k
 " Better split movement
 nmap <Space> <C-w>w
 nmap <S-Space> <C-w>W
+nmap <C-w><C-t> <C-w>T
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
