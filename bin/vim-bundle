@@ -1,0 +1,36 @@
+#!/bin/sh
+
+BUNDLE_DIR=vim/vim.symlink/bundle
+SUBTREE_HISTORY=subtree_history.txt
+
+repo_name()
+{
+  echo $1 | sed 's%^.*/\([^/]*\)\.git$%\1%g'
+}
+
+add_vim_bundle()
+{
+  GIT_REPO=$1
+  GIT_BRANCH=$2
+  if [ -z '$GIT_BRANCH' ]; then
+    GIT_BRANCH='master'
+  fi
+  REPO_NAME=`repo_name $GIT_REPO`
+  COMMAND="git subtree add --squash -P $BUNDLE_DIR/$REPO_NAME $GIT_REPO $GIT_BRANCH"
+  $COMMAND
+  echo $COMMAND >> $SUBTREE_HISTORY
+}
+
+remove_vim_bundle()
+{
+  echo Not Implemented $1
+}
+
+case $1 in
+  add)
+    add_vim_bundle $2
+    ;;
+  rm)
+    remove_vim_bundle $2
+    ;;
+esac
