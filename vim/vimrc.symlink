@@ -27,13 +27,39 @@ set ff=unix
 
 filetype plugin indent on
 
+" make escape faster
+set noesckeys
+
 nnoremap ; :
 nnoremap j gj
-nnoremap j gj
+nnoremap k gk
+map Y y$
+
+noremap <F1> <Esc>
+
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+cmap w!! %!sudo tee > /dev/null %
+
+" absolute line numbers in insert mode, relative otherwise for easy movement
+au InsertEnter * :set nu
+au InsertLeave * :set rnu
+
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 set bg=light
 let g:solarized_diffmode="high"
 colorscheme solarized
+
+" automatically reload vimrc when it's saved
+au BufWritePost .vimrc so ~/.vimrc
 
 " Remember last location in file
 if has("autocmd")
