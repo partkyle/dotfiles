@@ -45,8 +45,13 @@ cnoremap <C-e> <End>
 cmap w!! %!sudo tee > /dev/null %
 
 " absolute line numbers in insert mode, relative otherwise for easy movement
-au InsertEnter * :set nu
-au InsertLeave * :set rnu
+if exists('+relativenumber')
+  set relativenumber
+  autocmd InsertEnter * :set number
+  autocmd InsertLeave * :set relativenumber
+else
+  set number
+endif
 
 if exists('+colorcolumn')
   set colorcolumn=80
@@ -105,13 +110,12 @@ vmap <C-j> ]egv
 " Directories for swp and undo files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set directory=~/.vimswap//,/var/tmp//,/tmp//,.
-try
+if exists('+undodir')
   set undofile
   set undodir=~/.vimswap//,/var/tmp//,/tmp//,.
   set undolevels=1000  "maximum number of changes that can be undone
   set undoreload=10000 "maximum number lines to save for undo on a buffer reload
-catch
-endtry
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " % to bounce from do to end etc.
