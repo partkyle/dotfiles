@@ -28,7 +28,7 @@ remove_vim_bundle()
 
 case $1 in
   add)
-    add_vim_bundle $2
+    add_vim_bundle $2 $3
     ;;
   rm)
     remove_vim_bundle $2
