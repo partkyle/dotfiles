@@ -78,9 +78,10 @@ vmap <C-j> ]egv
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Directories for swp and undo files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set directory=/tmp
+set directory=~/.vimswap//,/var/tmp//,/tmp//,.
 try
   set undofile
+  set undodir=~/.vimswap//,/var/tmp//,/tmp//,.
   set undolevels=1000  "maximum number of changes that can be undone
   set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 catch
