@@ -9,3 +9,5 @@ emacs/**/elpa
 emacs/**/auto-save-list
 emacs/**/tramp
 emacs/**/url
+
+!bin/
