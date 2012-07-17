@@ -42,7 +42,8 @@ cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-cmap w!! %!sudo tee > /dev/null %
+" sudo write
+cnoreabbrev w!! %!sudo tee > /dev/null %
 
 " absolute line numbers in insert mode, relative otherwise for easy movement
 if exists('+relativenumber')
