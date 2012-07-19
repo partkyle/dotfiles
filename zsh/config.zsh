@@ -54,3 +54,6 @@ bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 bindkey ' ' magic-space    # also do history expansion on space
+
+# disable the C-s and C-q restriction for vim
+stty -ixon -ixoff
