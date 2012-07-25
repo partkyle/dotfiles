@@ -1,4 +1,5 @@
 alias reload!='. ~/.zshrc && echo "Shoot outside the screen!"'
+alias :q='exit'
 
 # noglob fixes
 alias curl='noglob curl'
