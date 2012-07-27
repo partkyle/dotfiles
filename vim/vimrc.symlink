@@ -29,6 +29,7 @@ set scrolloff=3
 filetype plugin indent on
 
 let g:netrw_list_hide='.*\.pyc$'
+let g:netrw_liststyle=3
 
 " make escape faster
 set noesckeys
