@@ -24,8 +24,11 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,*.pyc,.svn,vendor/gems/*
 set autoread
 set ff=unix
+set scrolloff=3
 
 filetype plugin indent on
+
+let g:netrw_list_hide='.*\.pyc$'
 
 " make escape faster
 set noesckeys
