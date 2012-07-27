@@ -20,3 +20,4 @@ git subtree add --squash -P vim/vim.symlink/bundle/vim-coffee-script git@github.
 git subtree add --squash -P vim/vim.symlink/bundle/vim-powerline git@github.com:Lokaltog/vim-powerline.git develop
 git subtree add --squash -P vim/vim.symlink/bundle/mustache.vim git@github.com:juvenn/mustache.vim.git master
 git subtree pull --squash --prefix vim/vim.symlink/bundle/Command-T https://github.com/wincent/Command-T.git master
+git subtree add --squash -P vim/vim.symlink/bundle/linters.vim git@github.com:maelstrom/linters.vim.git master
