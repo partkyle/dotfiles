@@ -21,3 +21,4 @@ git subtree add --squash -P vim/vim.symlink/bundle/vim-powerline git@github.com:
 git subtree add --squash -P vim/vim.symlink/bundle/mustache.vim git@github.com:juvenn/mustache.vim.git master
 git subtree pull --squash --prefix vim/vim.symlink/bundle/Command-T https://github.com/wincent/Command-T.git master
 git subtree add --squash -P vim/vim.symlink/bundle/syntastic git@github.com:scrooloose/syntastic.git master
+git subtree add --squash -P vim/vim.symlink/bundle/vim-endwise git@github.com:tpope/vim-endwise.git master
