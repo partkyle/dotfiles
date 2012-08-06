@@ -9,3 +9,8 @@ alias  grep='noglob grep'
 alias egrep='noglob egrep'
 alias fgrep='noglob fgrep'
 alias   ack='noglob ack'
+
+# grep colors
+alias  grep='noglob grep --color=auto'
+alias egrep='noglob egrep --color=auto'
+alias fgrep='noglob fgrep --color=auto'
