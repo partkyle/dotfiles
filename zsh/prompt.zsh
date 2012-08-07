@@ -48,26 +48,48 @@ git_prompt_quick() {
     if [ -n "$1" ]; then
       echo "$1" "${b##refs/heads/}$r"
     else
-      echo "%{$fg[yellow]%}%s" "${b##refs/heads/}$r"
+      echo "${b##refs/heads/}$r"
     fi
   fi
 }
 
-directory_name() {
-  echo "%{$fg[cyan]%}${PWD/#$HOME/~}%{$reset_color%}"
+prompt-uber() {
+  directory_name() {
+    echo "%{$fg[cyan]%}${PWD/#$HOME/~}%{$reset_color%}"
+  }
+
+  git_prompt() {
+    GIT_PROMPT=$(git_prompt_quick)
+    if [ -n "$GIT_PROMPT" ]; then
+      echo " %{$fg[yellow]%}$GIT_PROMPT%{$reset_color%}"
+    fi
+  }
+
+  prompt_color() {
+    if [[ -n $SSH_CONNECTION ]]; then
+      echo "%{$fg_bold[magenta]%}"
+    else
+      echo "%{$fg[green]%}"
+    fi
+  }
+
+  host_name() {
+    echo " $(prompt_color)%m%{$reset_color%}"
+  }
+
+  export PROMPT=" $(prompt_color)%# %{$reset_color%}"
+  export RPROMPT='$(directory_name)$(git_prompt)$(host_name)'
 }
 
-prompt_color() {
-  if [[ -n $SSH_CONNECTION ]]; then
-    echo "%{$fg_bold[magenta]%}"
-  else
-    echo "%{$fg[green]%}"
-  fi
+prompt-simple() {
+  git_prompt() {
+    GIT_PROMPT=$(git_prompt_quick)
+    if [ -n "$GIT_PROMPT" ]; then
+      echo "[$GIT_PROMPT]"
+    fi
+  }
+  export PROMPT='${PWD/#$HOME/~}$(git_prompt)%# '
+  export RPROMPT=""
 }
 
-host_name() {
-  echo "$(prompt_color)%m%{$reset_color%}"
-}
-
-export PROMPT=" $(prompt_color)%# %{$reset_color%}"
-export RPROMPT='$(directory_name)$(git_prompt_quick) $(host_name)'
+prompt-uber
