@@ -7,14 +7,6 @@
   // goto stuff
 
   { "keys": ["ctrl+x", "ctrl+f"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
-  { "keys": ["alt+g", "alt+g"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true, "text" : ":"}},
-  { "keys": ["ctrl+alt+g"], "command": "show_overlay", "args": {"overlay":"goto", "show_files" : false, "text": "@"}},
-  { "keys": ["ctrl+x", "b"], "command": "next_view" },
-
-  // file handling
-  { "keys": ["ctrl+x", "k"], "command": "close" },
-  { "keys": ["ctrl+x", "ctrl+c"], "command": "exit"},
-  { "keys": ["ctrl+x", "ctrl+s"], "command": "save"},
 
   // command
   { "keys": ["alt+x"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
@@ -52,10 +44,6 @@
   { "keys": ["ctrl+/"], "command": "undo"},
   { "keys": ["ctrl+shift+/"], "command": "redo"},
 
-  // search
-  { "keys": ["ctrl+r"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":true} },
-  { "keys": ["ctrl+s"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse":false} },
-
   // SPLITS
   // set default layout
   {
@@ -91,24 +79,5 @@
       "rows": [0.0, 1.0],
       "cells": [[0, 0, 1, 1], [1, 0, 2, 1]]
     }
-  },
-
-  // Aborter
-  { "keys": ["ctrl+g"], "command": "noop"},
-
-  { "keys": ["ctrl+g"], "command": "hide_overlay", "context":
-    [
-      { "key": "overlay_visible", "operator": "equal", "operand": true }
-    ]
-  },
-  { "keys": ["ctrl+g"], "command": "hide_auto_complete", "context":
-    [
-      { "key": "auto_complete_visible", "operator": "equal", "operand": true }
-    ]
-  },
-  { "keys": ["ctrl+g"], "command": "hide_panel", "context":
-    [
-      { "key": "panel_visible", "operator": "equal", "operand": true }
-    ]
   }
 ]
