@@ -18,5 +18,5 @@ for repo in "$@"; do
     name=$remote
   fi
 
-  git clone git@github.com:$GH_USER/$remote $name
+  git clone git@github.com:$GITHUB_USER/$remote $name
 done
