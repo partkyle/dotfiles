@@ -1,0 +1,21 @@
+fontName = "Meslo LG M"
+fontSize = 14
+
+[ * ]
+tabSize  = 2
+softTabs = true
+
+[ *.{icns,ico,jpg,jpeg,m4v,nib,pdf,png,psd,pyc,rtf,tif,tiff,xib} ]
+binary = true
+
+[ source.python ]
+tabSize  = 4
+softTabs = true
+
+[ "{README,INSTALL,LICENSE,TODO}" ]
+fileType = "text.plain"
+
+[ .git/COMMIT_EDITMSG ]
+softWrap         = true
+spellChecking    = true
+spellingLanguage = 'en'
