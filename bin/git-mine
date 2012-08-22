@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# Clone my repos from github.
+#
+# This accepts an array.
+#
+# To change the name of the checked out repo, use a ':' to separate the terms.
+
+if [ -z "$GITHUB_USER" ]; then
+  GITHUB_USER='partkyle'
+fi
+
+for repo in "$@"; do
+  remote=$(echo $repo | cut -f 1 -d ':')
+  name=$(echo $repo | cut -f 2 -d ':')
+
+  if [ -z "$name" ]; then
+    name=$remote
+  fi
+
+  git clone git@github.com:$GITHUB_USER/$remote $name
+done
