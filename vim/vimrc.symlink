@@ -92,6 +92,9 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
+" fuzzy finder settings
+map <C-x><C-f> :FufFile<CR>
+
 let g:CommandTMaxHeight=10
 let g:CommandTMinHeight=10
 map <Leader><Leader> :CommandT<CR>
