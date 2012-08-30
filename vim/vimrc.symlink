@@ -112,7 +112,7 @@ map <Leader>/ :CommandTFlush<CR>:CommandT<CR>
 " dwm settings
 let g:dwm_map_keys=0
 map <C-n> :call DWM_New()<CR>
-map <C-x> :call DWM_Close()<CR>
+map <C-q> :call DWM_Close()<CR>
 map <C-Space> :call DWM_Focus()<CR>
 map <C-@> :call DWM_Focus()<CR>
 " In preparation of mode system
