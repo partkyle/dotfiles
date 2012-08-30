@@ -109,12 +109,17 @@ map <Leader><Leader> :CommandT<CR>
 map <Leader>. :CommandTBuffer<CR>
 map <Leader>/ :CommandTFlush<CR>:CommandT<CR>
 
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-nmap <C-k> [e
-nmap <C-j> ]e
+" dwm settings
+let g:dwm_map_keys=0
+map <C-n> :call DWM_New()<CR>
+map <C-x> :call DWM_Close()<CR>
+map <C-Space> :call DWM_Focus()<CR>
+map <C-@> :call DWM_Focus()<CR>
+" In preparation of mode system
+map <C-M> :call DWM_Full()<CR>
+map <C-J> <C-W>w
+map <C-K> <C-W>W
+
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
