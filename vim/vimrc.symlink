@@ -83,14 +83,25 @@ function! s:setupWrapping()
 endfunction
 autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 
-autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,config.ru,*.rake} set ft=ruby
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
+
+" emacs-isms (so sue me)
+nmap <C-x><C-s> :w<CR>
+imap <C-x><C-s> <Esc>:w<CR>gi
+inoremap          <C-A> <C-O>^
+cnoremap          <C-A> <Home>
+inoremap          <C-E> <End>
+cnoremap          <C-E> <End>
 
 " open file helpers
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+
+" fuzzy finder settings
+map <C-x><C-f> :FufFile<CR>
 
 let g:CommandTMaxHeight=10
 let g:CommandTMinHeight=10

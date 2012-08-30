@@ -1,7 +1,5 @@
 set guioptions-=T " hide toolbar
 
-colorscheme Tomorrow-Night
-
 " set font based on OS
 if has("gui_macvim")
   set guifont=Meslo\ LG\ L\ DZ:h14
