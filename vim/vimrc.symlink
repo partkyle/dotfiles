@@ -100,6 +100,10 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
+" minibufl explorer
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+
 " fuzzy finder settings
 map <C-x><C-f> :FufFile<CR>
 
