@@ -19,6 +19,8 @@ add_vim_bundle()
   COMMAND="git subtree add --squash -P $BUNDLE_DIR/$REPO_NAME $GIT_REPO $GIT_BRANCH"
   $COMMAND
   echo $COMMAND >> $SUBTREE_HISTORY
+  git add $SUBTREE_HISTORY
+  git commit -m "added $REPO_NAME"
 }
 
 remove_vim_bundle()
