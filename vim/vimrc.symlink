@@ -106,6 +106,7 @@ nmap <leader>bp :bp<CR>
 nmap <leader>bd :bd<CR>
 
 " fuzzy finder settings
+map <leader>f  :FufFile<CR>
 map <C-x><C-f> :FufFile<CR>
 
 let g:CommandTMaxHeight=10
@@ -148,8 +149,8 @@ cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 " jj to escape in insert mode.
 inoremap jj <Esc>
-" ,f to search project
-nmap <leader>f :Ack ""<Left>
+" ,a to search project
+nmap <leader>a :Ack ""<Left>
 " git (fugitive) commands
 nmap <leader>gs :Gstatus<CR><C-w>J
 nmap <leader>gd :Gdiff<CR>
