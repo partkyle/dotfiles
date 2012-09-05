@@ -36,9 +36,6 @@ let g:netrw_liststyle=3
 
 map <leader>d :Explore<CR>
 
-" make escape faster
-set noesckeys
-
 nmap <ESC> :nohlsearch<return>
 nmap <C-c> :nohlsearch<return>
 
