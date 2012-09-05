@@ -1,0 +1,27 @@
+#compdef vim-bundle
+_vim-bundle() {
+  local BUNDLE_DIR="$ZSH/vim/vim.symlink/bundle"
+  local curcontext="$curcontext" state line
+
+  typeset -A opt_args
+
+  _arguments \
+    '1: :->function'\
+    '*: :->bundle'
+
+  case $state in
+    function)
+      _arguments '1:Functions:(add rm)'
+      ;;
+    *)
+      case $words[2] in
+        rm)
+          compadd "$@" $(ls $BUNDLE_DIR)
+          ;;
+        *)
+          _files
+      esac
+  esac
+}
+
+_vim-bundle "$@"

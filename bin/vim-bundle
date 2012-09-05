@@ -25,7 +25,9 @@ add_vim_bundle()
 
 remove_vim_bundle()
 {
-  echo Not Implemented $1
+  COMMAND="rm -rf $BUNDLE_DIR/$1"
+  $COMMAND
+  echo $COMMAND >> $SUBTREE_HISTORY
 }
 
 case $1 in
