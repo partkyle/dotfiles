@@ -54,14 +54,7 @@ cnoremap <C-e> <End>
 " sudo write
 cnoreabbrev w!! %!sudo tee > /dev/null %
 
-" absolute line numbers in insert mode, relative otherwise for easy movement
-if exists('+relativenumber')
-  set relativenumber
-  autocmd InsertEnter * :set number
-  autocmd InsertLeave * :set relativenumber
-else
-  set number
-endif
+set number
 
 set bg=light
 let g:solarized_diffmode="high"
