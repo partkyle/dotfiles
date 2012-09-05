@@ -25,3 +25,4 @@ rm -rf vim/vim.symlink/bundle/neocomplcache
 git subtree add --squash -P vim/vim.symlink/bundle/FuzzyFinder git@github.com:vim-scripts/FuzzyFinder.git master
 git subtree add --squash -P vim/vim.symlink/bundle/minibufexpl.vim git@github.com:fholgado/minibufexpl.vim.git master
 git subtree add --squash -P vim/vim.symlink/bundle/Align git@github.com:vim-scripts/Align.git master
+rm -rf vim/vim.symlink/bundle/Align
