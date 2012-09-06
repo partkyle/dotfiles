@@ -28,6 +28,7 @@ remove_vim_bundle()
   COMMAND="rm -rf $BUNDLE_DIR/$1"
   $COMMAND
   echo $COMMAND >> $SUBTREE_HISTORY
+  git add -A $BUNDLE_DIR $SUBTREE_HISTORY
 }
 
 case $1 in
