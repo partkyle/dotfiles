@@ -29,7 +29,7 @@ set scrolloff=3
 filetype plugin indent on
 
 " tags
-set tags=./tags,../tags,~/.vimtags
+set tags=./tags,tags,../tags,~/.vimtags
 nmap <F4> :TlistToggle<CR>
 set updatetime=4000
 
