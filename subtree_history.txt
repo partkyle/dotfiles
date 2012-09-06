@@ -28,3 +28,4 @@ git subtree add --squash -P vim/vim.symlink/bundle/Align git@github.com:vim-scri
 rm -rf vim/vim.symlink/bundle/Align
 git subtree add --squash -P vim/vim.symlink/bundle/vim-easytags git@github.com:xolox/vim-easytags.git master
 git subtree add --squash -P vim/vim.symlink/bundle/vim-easytags git@github.com:xolox/vim-easytags.git master
+rm -rf vim/vim.symlink/bundle/vim-easytags
