@@ -1,6 +1,9 @@
 alias reload!='. ~/.zshrc && echo "Shoot outside the screen!"'
 alias :q='exit'
 
+# lgst, since I type it all the time
+alias lgst='git status; ls'
+
 # noglob fixes
 alias  curl='noglob curl'
 alias  echo='noglob echo'
