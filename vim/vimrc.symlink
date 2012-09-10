@@ -85,16 +85,16 @@ autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,confi
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
 " emacs-isms (so sue me)
-nmap <C-x><C-s> :w<CR>
-imap <C-x><C-s> <Esc>:w<CR>gi
-inoremap          <C-A> <C-O>^
-cnoremap          <C-A> <Home>
-inoremap          <C-E> <End>
-cnoremap          <C-E> <End>
-inoremap          <C-F> <C-O>l
-cnoremap          <C-F> <C-O>l
-inoremap          <C-B> <C-O>h
-cnoremap          <C-B> <C-O>h
+nnoremap <C-x><C-s> :w<CR>
+inoremap <C-x><C-s> <Esc>:w<CR>gi
+inoremap <C-A>      <C-O>^
+cnoremap <C-A>      <Home>
+inoremap <C-E>      <End>
+cnoremap <C-E>      <End>
+inoremap <C-F>      <C-O>l
+cnoremap <C-F>      <C-O>l
+inoremap <C-B>      <C-O>h
+cnoremap <C-B>      <C-O>h
 
 " open file helpers
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
