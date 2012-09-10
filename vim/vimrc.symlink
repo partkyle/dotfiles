@@ -20,11 +20,14 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,*.pyc,.svn,vendor/gems/*
 set autoread
 set ff=unix
 set scrolloff=3
+
+" wild settings
+set wildchar=<Tab> wildmenu
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,*.pyc,.svn,vendor/gems/*
 
 filetype plugin indent on
 
