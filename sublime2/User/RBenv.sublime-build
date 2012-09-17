@@ -1,4 +1,0 @@
-{
-  "cmd": ["rbenv", "exec", "ruby", "$file"],
-  "selector": "source.ruby"
-}

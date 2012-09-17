@@ -40,10 +40,6 @@
   // selection
   { "keys": ["ctrl+x", "h"], "command": "select_all"},
 
-  // undo and redo
-  { "keys": ["ctrl+/"], "command": "undo"},
-  { "keys": ["ctrl+shift+/"], "command": "redo"},
-
   // SPLITS
   // set default layout
   {

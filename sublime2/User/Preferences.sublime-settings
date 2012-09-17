@@ -3,7 +3,7 @@
 	"auto_complete_with_fields": true,
 	"caret_style": "solid",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
+	"color_scheme": "Packages/Solarized Color Scheme (TextMate)/Solarized (light).tmTheme",
 	"default_line_ending": "unix",
 	"drag_text": false,
 	"draw_minimap_border": true,
@@ -17,10 +17,6 @@
 	"font_size": 15.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
 	"indent_guide_options":
 	[
 		"draw_active",
