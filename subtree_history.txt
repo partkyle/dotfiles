@@ -33,3 +33,4 @@ rm -rf vim/vim.symlink/bundle/minibufexpl.vim
 git subtree add --squash -P vim/vim.symlink/bundle/numbers.vim git@github.com:myusuf3/numbers.vim.git master
 rm -rf vim/vim.symlink/bundle/numbers.vim
 git subtree add --squash -P vim/vim.symlink/bundle/ctrlp.vim git@github.com:kien/ctrlp.vim.git master
+git subtree add --squash -P zsh/highlight git@github.com:zsh-users/zsh-syntax-highlighting.git master
