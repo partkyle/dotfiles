@@ -13,6 +13,7 @@
  'jmc-eval-to-here)
 
 (push "/usr/local/bin" exec-path)
+
 (add-to-list 'load-path "~/.emacs.d")
 
 ;; the bell is evil
@@ -61,7 +62,7 @@
       (delete-selection-mode t)
       (tool-bar-mode -1)
       (blink-cursor-mode -1)
-      (load-theme 'wombat t)))
+      (load-theme 'solarized-light t)))
 
 (setq inhibit-startup-message t)
 (set-fringe-style -1)
@@ -98,6 +99,22 @@
   (ido-mode t)
   (setq ido-max-directory-size 10000
         Ido-enable-flex-matching t)) ;; enable fuzzy matching
+
+(defun ruby-mode-hook ()
+  (autoload 'ruby-mode "ruby-mode" nil t)
+  (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("Vagrantfile" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
+  (add-hook 'ruby-mode-hook '(lambda ()
+                               (setq ruby-deep-arglist t)
+                               (setq ruby-deep-indent-paren nil)
+                               (setq c-tab-always-indent nil)
+                               (require 'inf-ruby)
+                               (require 'ruby-compilation))))
 
 ;; ruby-electric-mode for ruby scripts
 (add-hook 'ruby-mode-hook
