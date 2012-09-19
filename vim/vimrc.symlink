@@ -166,6 +166,8 @@ nmap <leader>gd :Gdiff<CR>
 " better moving in insert mode
 imap <C-j> <C-o>j
 imap <C-k> <C-o>k
+imap <C-h> <C-o>h
+imap <C-l> <C-o>l
 " Better split movement
 nmap <Space> <C-w>w
 nmap <S-Space> <C-w>W
