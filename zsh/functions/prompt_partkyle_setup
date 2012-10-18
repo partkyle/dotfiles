@@ -16,7 +16,7 @@ prompt_partkyle_setup () {
   zstyle ':vcs_info:*' formats ' {%b%c%u}'
   zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{cyan}%r%f'
 
-  PROMPT='%2~${vcs_info_msg_0_} %# '
+  PROMPT='%~${vcs_info_msg_0_} %# '
   RPROMPT='[%*]'
 }
 
