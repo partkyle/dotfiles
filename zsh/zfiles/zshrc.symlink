@@ -12,5 +12,5 @@ fi
 
 # Customize to your needs...
 
-alias gst='git status'
-alias rst='touch tmp/restart.txt'
+# TODO: fix the source of this to use $ZSH maybe?
+source ~/.dotfiles/zsh/aliases.zsh
