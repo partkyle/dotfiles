@@ -1,186 +1,117 @@
-call pathogen#infect()
-call pathogen#helptags()
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
 
 let mapleader=","
-set nocompatible
-set number
-set ruler
-syntax on
-set hidden
-set encoding=utf-8
-set nowrap
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set list listchars=tab:\ \ ,trail:·
-set backspace=indent,eol,start
-set laststatus=2
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set autoread
-set ff=unix
-set scrolloff=3
 
-" wild settings
-set wildchar=<Tab> wildmenu
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,*.pyc,.svn,vendor/gems/*
-
-filetype plugin indent on
-
-" tags
-set tags=./tags,tags,../tags,~/.vimtags
-nmap <F4> :TlistToggle<CR>
-set updatetime=4000
-
-" git commit message
-if has('autocmd')
-  if has('spell')
-    au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
-  endif
-  au BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
+" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
+" source ~/.vimrc.before if it exists.
+if filereadable(expand("~/.vimrc.before"))
+  source ~/.vimrc.before
 endif
 
-let g:netrw_list_hide='.*\.pyc$'
-let g:netrw_liststyle=3
+" =============== Pathogen Initialization ===============
+" This loads all the plugins in ~/.vim/bundle
+" Use tpope's pathogen plugin to manage all other plugins
 
-map <leader>d :Explore<CR>
+  runtime bundle/tpope-vim-pathogen/autoload/pathogen.vim
+  call pathogen#infect()
+  call pathogen#helptags()
 
-nmap <C-c> :nohlsearch<return>
+" ================ General Config ====================
 
-nnoremap ; :
-nnoremap j gj
-nnoremap k gk
-map Y y$
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set history=1000                "Store lots of :cmdline history
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set gcr=a:blinkon0              "Disable cursor blink
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
 
-noremap <F1> <Esc>
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden
 
-cnoremap <C-j> <t_kd>
-cnoremap <C-k> <t_ku>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
+"turn on syntax highlighting
+syntax on
 
-" sudo write
-cnoreabbrev w!! %!sudo tee > /dev/null %
+"always show status line
+set laststatus=2
 
-set number
+"color
+let g:solarized_diffmode="high"
+let g:solarized_hitrail=1
 
 set bg=light
-let g:solarized_diffmode="high"
 colorscheme solarized
 
-" automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
+" ================ Search Settings  =================
 
-" Remember last location in file
-if has("autocmd")
-  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-        \| exe "normal g'\"" | endif
-endif
+set incsearch        "Find the next match as we type the search
+set hlsearch         "Hilight searches by default
+set viminfo='100,f1  "Save up to 100 marks, enable capital marks
+set ignorecase
+set smartcase
 
-function! s:setupWrapping()
-  set wrap
-  set wrapmargin=2
-  set textwidth=72
-endfunction
-autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
+" ================ Turn Off Swap Files ==============
 
-autocmd BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,config.ru,*.rake} set ft=ruby
+set noswapfile
+set nobackup
+set nowb
 
-autocmd BufNewFile,BufRead *.json set ft=javascript
+" ================ Persistent Undo ==================
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
 
-" emacs-isms (so sue me)
-nnoremap <C-x><C-s> :w<CR>
-inoremap <C-x><C-s> <Esc>:w<CR>gi
-inoremap <C-A>      <C-O>^
-cnoremap <C-A>      <Home>
-inoremap <C-E>      <End>
-cnoremap <C-E>      <End>
-inoremap <C-F>      <C-O>l
-cnoremap <C-F>      <C-O>l
-inoremap <C-B>      <C-O>h
-cnoremap <C-B>      <C-O>h
+silent !mkdir ~/.vim-backups > /dev/null 2>&1
+set undodir=~/.vim-backups
+set undofile
 
-" open file helpers
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+" ================ Indentation ======================
 
-" mappings that make buffers better
-nmap <leader>bn :bn<CR>
-nmap <leader>bp :bp<CR>
-nmap <leader>bd :bd<CR>
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+set ff=unix
 
-" fuzzy finder settings
-map <leader>f  :FufFile<CR>
-map <C-x><C-f> :FufFile<CR>
+filetype plugin on
+filetype indent on
 
-let g:CommandTMaxHeight=10
-let g:CommandTMinHeight=10
-map <Leader><Leader> :CommandT<CR>
-map <Leader>. :CommandTBuffer<CR>
-map <Leader>/ :CommandTFlush<CR>:CommandT<CR>
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
 
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient points
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Directories for swp and undo files
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set directory=~/.vimswap//,/var/tmp//,/tmp//,.
-if exists('+undodir')
-  set undofile
-  set undodir=~/.vimswap//,/var/tmp//,/tmp//,.
-  set undolevels=1000  "maximum number of changes that can be undone
-  set undoreload=10000 "maximum number lines to save for undo on a buffer reload
-endif
+" ================ Folds ============================
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" % to bounce from do to end etc.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-runtime! macros/matchit.vim
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" custom key mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" I can't believe that :W does nothing
-cnoreabbrev W w
-cnoreabbrev Q q
-cnoreabbrev Wq wq
-cnoreabbrev WQ wq
-" jj to escape in insert mode.
-inoremap jj <Esc>
-" ,a to search project
-nmap <leader>a :Ack ""<Left>
-" git (fugitive) commands
-nmap <leader>gs :Gstatus<CR><C-w>J
-nmap <leader>gd :Gdiff<CR>
-" better moving in insert mode
-imap <C-j> <C-o>j
-imap <C-k> <C-o>k
-imap <C-h> <C-o>h
-imap <C-l> <C-o>l
-" Better split movement
-nmap <Space> <C-w>w
-nmap <S-Space> <C-w>W
-nmap <C-w><C-t> <C-w>T
+" ================ Completion =======================
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MacVIM shift+arrow-keys behavior (required in .vimrc)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let macvim_hig_shift_movement = 1
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
 
-" Automatically resize splits when resizing MacVim window
-if has("gui_running")
-  autocmd VimResized * wincmd =
-endif
+" ================ Scrolling ========================
 
-let g:Powerline_colorscheme = 'solarized'
+set scrolloff=3         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=8
+set sidescroll=1
