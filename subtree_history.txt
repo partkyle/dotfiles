@@ -37,3 +37,4 @@ git subtree add --squash -P zsh/highlight git@github.com:zsh-users/zsh-syntax-hi
 git subtree add --squash -P vim/vim.symlink/bundle/dwm.vim git@github.com:spolu/dwm.vim.git master
 git subtree add --squash -P vim/vim.symlink/bundle/dwm.vim git@github.com:spolu/dwm.vim.git master
 rm -rf vim/vim.symlink/bundle/dwm.vim
+rm -rf vim/vim.symlink/bundle/ctrlp.vim
