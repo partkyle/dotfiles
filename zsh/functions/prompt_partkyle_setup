@@ -1,0 +1,23 @@
+# partkyle's Prompt
+
+prompt_partkyle_precmd () {
+  vcs_info
+}
+
+prompt_partkyle_setup () {
+  autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
+
+  prompt_opts=(cr percent subst)
+
+  add-zsh-hook precmd prompt_partkyle_precmd
+
+  zstyle ':vcs_info:*' enable bzr git hg svn
+  zstyle ':vcs_info:*' formats ' {%b%c%u}'
+  zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{cyan}%r%f'
+
+  PROMPT='%2~${vcs_info_msg_0_} %# '
+  RPROMPT='[%*]'
+}
+
+prompt_partkyle_setup "$@"

@@ -50,11 +50,18 @@ fi
 typeset -gU cdpath fpath mailpath manpath path
 typeset -gUT INFOPATH infopath
 
+# Set the list of function directories to add the dotfiles versions
+fpath=(
+  ${ZDOTDIR:-$HOME}/.dotfiles/zsh/functions
+  $fpath
+)
+
 # Set the the list of directories that cd searches.
 cdpath=(
   ~
   ~/code
   ~/sendgrid
+  $cdpath
 )
 
 # Set the list of directories that info searches for manuals.
