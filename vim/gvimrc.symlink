@@ -2,7 +2,7 @@ set guioptions-=T " hide toolbar
 
 " set font based on OS
 if has("gui_macvim")
-  set guifont=Meslo\ LG\ L\ DZ:h14
+  set guifont=Droid\ Sans\ Mono:h14
 elseif has("gui_win32")
   set guifont=Consolas:h11
 end
