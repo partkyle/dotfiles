@@ -3,13 +3,13 @@
 	"auto_complete_with_fields": true,
 	"caret_style": "solid",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Solarized Color Scheme (TextMate)/Solarized (light).tmTheme",
+	"color_scheme": "Packages/User/themes/Tomorrow-Night-Eighties.tmTheme",
 	"default_line_ending": "unix",
 	"drag_text": false,
 	"draw_minimap_border": true,
 	"ensure_newline_at_eof_on_save": true,
 	"find_selected_text": true,
-	"font_face": "Meslo LG M DZ",
+	"font_face": "Droid Sans Mono",
 	"font_options":
 	[
 		"no_bold"
