@@ -40,13 +40,6 @@ syntax on
 "always show status line
 set laststatus=2
 
-"color
-let g:solarized_diffmode="high"
-let g:solarized_hitrail=1
-
-set bg=light
-colorscheme solarized
-
 " ================ Search Settings  =================
 
 set incsearch        "Find the next match as we type the search
