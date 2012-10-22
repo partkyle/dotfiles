@@ -38,3 +38,4 @@ git subtree add --squash -P vim/vim.symlink/bundle/dwm.vim git@github.com:spolu/
 git subtree add --squash -P vim/vim.symlink/bundle/dwm.vim git@github.com:spolu/dwm.vim.git master
 rm -rf vim/vim.symlink/bundle/dwm.vim
 rm -rf vim/vim.symlink/bundle/ctrlp.vim
+git subtree add --squash -P vim/vim.symlink/bundle/vim-repeat git@github.com:tpope/vim-repeat.git master
