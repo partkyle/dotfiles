@@ -87,7 +87,6 @@ unset path_file
 path=(
   ~/.dotfiles/bin
   /usr/local/{bin,sbin}
-  /usr/local/Cellar/ruby/1.9.3-p194/bin
   /usr/{bin,sbin}
   /{bin,sbin}
   $path
@@ -107,4 +106,9 @@ if [[ -d "$TMPDIR" ]]; then
   if [[ ! -d "$TMPPREFIX" ]]; then
     mkdir -p "$TMPPREFIX"
   fi
+fi
+
+RBENV=$(which rbenv)
+if [ -n "$RBENV" ]; then
+  eval "$(rbenv init -)"
 fi
