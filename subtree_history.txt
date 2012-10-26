@@ -42,3 +42,4 @@ git subtree add --squash -P vim/vim.symlink/bundle/vim-repeat git@github.com:tpo
 git subtree add --squash -P vim/vim.symlink/bundle/vim-speeddating git@github.com:tpope/vim-speeddating.git master
 git subtree add --squash -P vim/vim.symlink/bundle/vim-speeddating git@github.com:tpope/vim-speeddating.git master
 git subtree add --squash -P vim/vim.symlink/bundle/vim-pipe git@github.com:krisajenkins/vim-pipe.git master
+git subtree add --squash -P vim/vim.symlink/bundle/vim-pipe git@github.com:krisajenkins/vim-pipe.git master
