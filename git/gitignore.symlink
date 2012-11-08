@@ -40,3 +40,9 @@ Thumbs.db
 # Completion files #
 ####################
 .rake_tasks~
+
+# CTags files #
+###############
+tags
+.tags
+.gemtags
