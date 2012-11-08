@@ -1,1 +1,1 @@
-set tags=./tags,tags,../tags,~/.vimtags
+set tags+=.gemtags
