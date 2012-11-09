@@ -52,3 +52,4 @@ git subtree add --squash -P vim/vim.symlink/bundle/vim-markdown https://github.c
 git subtree add --squash -P vim/vim.symlink/bundle/vim-vividchalk https://github.com/tpope/vim-vividchalk.git master
 git subtree add --squash -P vim/vim.symlink/bundle/vim-vividchalk https://github.com/tpope/vim-vividchalk.git master
 git subtree add --squash -P vim/vim.symlink/bundle/vim-color-github https://github.com/telamon/vim-color-github.git master
+git subtree add --squash -P vim/vim.symlink/bundle/vim-irblack https://github.com/wgibbs/vim-irblack.git master
