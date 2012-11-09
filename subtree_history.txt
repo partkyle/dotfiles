@@ -48,3 +48,4 @@ git subtree add --squash -P vim/vim.symlink/bundle/vim-less git@github.com:groen
 git subtree add --squash -P vim/vim.symlink/bundle/AutoClose https://github.com/vim-scripts/AutoClose.git master
 git subtree add --squash -P vim/vim.symlink/bundle/file-line git@github.com:vim-scripts/file-line.git master
 git subtree add --squash -P vim/vim.symlink/bundle/vim-markdown https://github.com/tpope/vim-markdown.git master
+git subtree add --squash -P vim/vim.symlink/bundle/vim-markdown https://github.com/tpope/vim-markdown.git master
