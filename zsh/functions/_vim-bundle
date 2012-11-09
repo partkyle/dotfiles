@@ -1,6 +1,6 @@
 #compdef vim-bundle
 _vim-bundle() {
-  local BUNDLE_DIR="$ZSH/vim/vim.symlink/bundle"
+  local BUNDLE_DIR="vim/vim.symlink/bundle"
   local curcontext="$curcontext" state line
 
   typeset -A opt_args
