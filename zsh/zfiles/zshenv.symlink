@@ -87,7 +87,6 @@ unset path_file
 path=(
   ~/.dotfiles/bin
   /usr/local/{bin,sbin}
-  /usr/local/Cellar/ruby/1.9.3-p286/bin
   /usr/{bin,sbin}
   /{bin,sbin}
   $path
