@@ -3,6 +3,7 @@ alias browser 'Google Chrome'
 alias editor  'Sublime Text 2'
 alias finder  'Finder'
 alias mail    'Sparrow'
+alias chat    'Messages'
 
 # Abstract Positions
 alias full          move screenOriginX;screenOriginY screenSizeX;screenSizeY
@@ -65,6 +66,7 @@ bind j:${hyper}        focus down
 # App bindings
 bind w:${hyper} focus ${browser}
 bind e:${hyper} focus ${editor}
+bind c:${hyper} focus ${chat}
 bind x:${hyper} focus 'Xcode'
 bind g:${hyper} focus 'GitHub'
 bind m:${hyper} focus ${mail}
