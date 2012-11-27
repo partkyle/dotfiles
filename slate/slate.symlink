@@ -68,5 +68,5 @@ bind e:${hyper} focus ${editor}
 bind x:${hyper} focus 'Xcode'
 bind g:${hyper} focus 'GitHub'
 bind m:${hyper} focus ${mail}
-bind i:${hyper} focus 'iTerm'
+bind t:${hyper} focus 'iTerm'
 bind o:${hyper} focus ${finder}
