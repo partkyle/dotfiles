@@ -1,11 +1,17 @@
+# App aliases
+alias browser 'Google Chrome'
+alias editor  'Sublime Text 2'
+alias finder  'Finder'
+alias mail    'Sparrow'
+
 # Abstract Positions
-alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
-alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
-alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
-alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
-alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
-alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
-alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+alias full          move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf      move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias righthalf     move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias topleft       corner top-left resize:screenSizeX/2;screenSizeY/2
+alias topright      corner top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomleft    corner bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomright   corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 bind g:cmd grid padding:5 0:6,2 1:8,3
 bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
@@ -21,12 +27,46 @@ bind pad7 ${topleft}
 bind pad8 push top bar-resize:screenSizeY/2
 bind pad9 ${topright}
 
-bind 3:cmd,ctrl,alt ${bottomleft}
-bind down:cmd,ctrl,alt push bottom bar-resize:screenSizeY/2
-bind 4:cmd,ctrl,alt ${bottomright}
-bind left:cmd,ctrl,alt ${lefthalf}
-bind f:cmd,ctrl,alt ${full}
-bind right:cmd,ctrl,alt ${righthalf}
-bind 1:cmd,ctrl,alt ${topleft}
-bind up:cmd,ctrl,alt push top bar-resize:screenSizeY/2
-bind 2:cmd,ctrl,alt ${topright}
+#
+# mega binding
+#
+alias mega cmd;ctrl;alt
+
+bind 1:${mega} ${topleft}
+bind 2:${mega} ${topright}
+bind 3:${mega} ${bottomleft}
+bind 4:${mega} ${bottomright}
+
+bind up:${mega}    push top bar-resize:screenSizeY/2
+bind down:${mega}  push bottom bar-resize:screenSizeY/2
+bind left:${mega}  ${lefthalf}
+bind right:${mega} ${righthalf}
+
+bind f:${mega} ${full}
+
+#
+# Hyper Bindings
+#
+
+alias hyper ctrl;cmd
+
+# Focus Bindings
+bind right:${hyper}    focus right
+bind left:${hyper}     focus left
+bind up:${hyper}       focus up
+bind down:${hyper}     focus down
+
+# vi focus bindings
+bind l:${hyper}        focus right
+bind h:${hyper}        focus left
+bind k:${hyper}        focus up
+bind j:${hyper}        focus down
+
+# App bindings
+bind w:${hyper} focus ${browser}
+bind e:${hyper} focus ${editor}
+bind x:${hyper} focus 'Xcode'
+bind g:${hyper} focus 'GitHub'
+bind m:${hyper} focus ${mail}
+bind i:${hyper} focus 'iTerm'
+bind o:${hyper} focus ${finder}
