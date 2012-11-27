@@ -1,0 +1,32 @@
+# Abstract Positions
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
+alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+bind g:cmd grid padding:5 0:6,2 1:8,3
+bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
+
+# numpad based commands (I might not like these)
+bind pad1 ${bottomleft}
+bind pad2 push bottom bar-resize:screenSizeY/2
+bind pad3 ${bottomright}
+bind pad4 ${lefthalf}
+bind pad5 ${full}
+bind pad6 ${righthalf}
+bind pad7 ${topleft}
+bind pad8 push top bar-resize:screenSizeY/2
+bind pad9 ${topright}
+
+bind 3:cmd,ctrl,alt ${bottomleft}
+bind down:cmd,ctrl,alt push bottom bar-resize:screenSizeY/2
+bind 4:cmd,ctrl,alt ${bottomright}
+bind left:cmd,ctrl,alt ${lefthalf}
+bind f:cmd,ctrl,alt ${full}
+bind right:cmd,ctrl,alt ${righthalf}
+bind 1:cmd,ctrl,alt ${topleft}
+bind up:cmd,ctrl,alt push top bar-resize:screenSizeY/2
+bind 2:cmd,ctrl,alt ${topright}
