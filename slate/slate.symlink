@@ -51,6 +51,7 @@ bind f:${mega} ${full}
 bind c:${mega} ${center}
 bind v:${mega} ${centerResize}
 bind /:${mega} undo
+bind x:${mega} throw next
 
 #
 # Hyper Bindings
