@@ -22,15 +22,15 @@ bind g:cmd grid padding:5 0:6,2 1:8,3
 bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
 
 # numpad based commands (I might not like these)
-bind pad1 ${bottomleft}
-bind pad2 push bottom bar-resize:screenSizeY/2
-bind pad3 ${bottomright}
-bind pad4 ${lefthalf}
-bind pad5 ${full}
-bind pad6 ${righthalf}
-bind pad7 ${topleft}
-bind pad8 push top bar-resize:screenSizeY/2
-bind pad9 ${topright}
+bind pad1:ctrl ${bottomleft}
+bind pad2:ctrl push bottom bar-resize:screenSizeY/2
+bind pad3:ctrl ${bottomright}
+bind pad4:ctrl ${lefthalf}
+bind pad5:ctrl ${full}
+bind pad6:ctrl ${righthalf}
+bind pad7:ctrl ${topleft}
+bind pad8:ctrl push top bar-resize:screenSizeY/2
+bind pad9:ctrl ${topright}
 
 #
 # mega binding
