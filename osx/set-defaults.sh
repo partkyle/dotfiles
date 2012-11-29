@@ -36,7 +36,8 @@ defaults write -g InitialKeyRepeat -int 25
 defaults write -g KeyRepeat -int 2
 
 # Enable "Natural" mouse scrolling
-defaults write -g com.apple.swipescrolldirection -int 0
+# this one broke my shit!
+# defaults write -g com.apple.swipescrolldirection -int 0
 
 # Use function keys like normal (I play games too Apple!)
 defaults write -g com.apple.keyboard.fnState -int 1
