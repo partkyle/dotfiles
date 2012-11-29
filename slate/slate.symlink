@@ -46,6 +46,7 @@ bind right:${mega} ${righthalf}
 
 bind f:${mega} ${full}
 bind c:${mega} ${center}
+bind /:${mega} undo
 
 #
 # Hyper Bindings
