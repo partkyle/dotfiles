@@ -75,6 +75,8 @@ function set-titles-with-command {
       set-terminal-window-title "$cmd"
       set-terminal-tab-title "$truncated_cmd"
     fi
+
+    MATCH=''
   fi
 }
 
@@ -97,6 +99,8 @@ function set-titles-with-path {
       set-terminal-window-title "$abbreviated_path"
       set-terminal-tab-title "$truncated_path"
     fi
+
+    MATCH=''
   fi
 }
 
