@@ -37,6 +37,10 @@ set hidden
 "turn on syntax highlighting
 syntax on
 
+let g:solarized_diffmode="high"
+set bg=light
+colorscheme solarized
+
 "always show status line
 set laststatus=2
 
