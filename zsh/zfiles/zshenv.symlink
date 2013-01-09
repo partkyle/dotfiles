@@ -5,6 +5,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+export DOTDIR="$HOME/.dotfiles"
+
 #
 # Browser
 #

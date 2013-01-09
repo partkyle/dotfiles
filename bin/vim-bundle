@@ -1,7 +1,7 @@
 #!/bin/sh
 
-BUNDLE_DIR=vim/vim.symlink/bundle
-SUBTREE_HISTORY=subtree_history.txt
+BUNDLE_DIR=${DOTDIR}/vim/vim.symlink/bundle
+SUBTREE_HISTORY=${DOTDIR}/subtree_history.txt
 
 repo_name()
 {
@@ -31,11 +31,19 @@ remove_vim_bundle()
   git add -A $BUNDLE_DIR $SUBTREE_HISTORY
 }
 
+show_vim_bundle()
+{
+  ls $BUNDLE_DIR
+}
+
 case $1 in
   add)
     add_vim_bundle $2 $3
     ;;
   rm)
     remove_vim_bundle $2
+    ;;
+  ls)
+    show_vim_bundle
     ;;
 esac
