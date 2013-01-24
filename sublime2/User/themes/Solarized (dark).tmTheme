@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Solarized (Light)</string>
+	<string>Solarized (Dark)</string>
 	<key>semanticClass</key>
-	<string>theme.light.solarized</string>
+	<string>theme.dark.solarized</string>
 	<key>gutterSettings</key>
 	<dict>
 		<key>background</key>
-		<string>#eee8d5</string>
+		<string>#073642</string>
 		<key>divider</key>
-		<string>#93a1a1</string>
-		<key>foreground</key>
-		<string>#657b83</string>
-		<key>selectionBackground</key>
-		<string>#93a1a1</string>
-		<key>selectionForeground</key>
 		<string>#586e75</string>
+		<key>foreground</key>
+		<string>#839496</string>
+		<key>selectionBackground</key>
+		<string>#586e75</string>
+		<key>selectionForeground</key>
+		<string>#93a1a1</string>
 	</dict>
 	<key>settings</key>
 	<array>
@@ -25,17 +25,17 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#FDF6E3</string>
+				<string>#002B36</string>
 				<key>caret</key>
-				<string>#000000</string>
+				<string>#819090</string>
 				<key>foreground</key>
-				<string>#586E75</string>
+				<string>#839496</string>
 				<key>invisibles</key>
-				<string>#EAE3C9</string>
+				<string>#073642</string>
 				<key>lineHighlight</key>
-				<string>#eee8d5</string>
+				<string>#073642</string>
 				<key>selection</key>
-				<string>#eee8d5</string>
+				<string>#073642</string>
 			</dict>
 		</dict>
 		<dict>
@@ -48,7 +48,7 @@
 				<key>fontStyle</key>
 				<string></string>
 				<key>foreground</key>
-				<string>#93A1A1</string>
+				<string>#586E75</string>
 			</dict>
 		</dict>
 		<dict>
@@ -125,9 +125,9 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string>bold</string>
+				<string></string>
 				<key>foreground</key>
-				<string>#073642</string>
+				<string>#738A05</string>
 			</dict>
 		</dict>
 		<dict>
@@ -244,7 +244,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#93A1A1</string>
+				<string>#586E75</string>
 			</dict>
 		</dict>
 		<dict>
@@ -996,6 +996,17 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>PHP: Class Names</string>
+			<key>scope</key>
+			<string>support.class.php</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#839496</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>PHP: []</string>
 			<key>scope</key>
 			<string>keyword.operator.index-start.php, keyword.operator.index-end.php</string>
@@ -1077,13 +1088,13 @@
 			<key>name</key>
 			<string>PHP: ::</string>
 			<key>scope</key>
-			<string>support.class.php, keyword.operator.class</string>
+			<string>keyword.operator.class</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
 				<string></string>
 				<key>foreground</key>
-				<string>#536871</string>
+				<string>#839496</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1113,6 +1124,17 @@
 			<string>PHP: Class Function</string>
 			<key>settings</key>
 			<dict/>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>PHP: Semicolon</string>
+			<key>scope</key>
+			<string>punctuation.terminator.expression.php</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#839496</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -1938,7 +1960,7 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#FDF6E3</string>
+				<string>#042029</string>
 				<key>foreground</key>
 				<string>#268bd2</string>
 			</dict>
@@ -1973,7 +1995,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#93a1a1</string>
+				<string>#586e75</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1987,19 +2009,8 @@
 				<string>#2aa198</string>
 			</dict>
 		</dict>
-		<dict>
-			<key>name</key>
-			<string>text plain</string>
-			<key>scope</key>
-			<string>text.plain</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#6a8187</string>
-			</dict>
-		</dict>
 	</array>
 	<key>uuid</key>
-	<string>38E819D9-AE02-452F-9231-ECC3B204AFD7</string>
+	<string>A4299D9B-1DE5-4BC4-87F6-A757E71B1597</string>
 </dict>
 </plist>
