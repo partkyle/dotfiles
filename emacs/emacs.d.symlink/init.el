@@ -12,6 +12,12 @@
  [f9]
  'jmc-eval-to-here)
 
+;; fix shift up on xterms
+(if (equal "xterm" (tty-type))
+    (define-key input-decode-map "\e[1;2A" [S-up]))
+(defadvice terminal-init-xterm (after select-shift-up activate)
+  (define-key input-decode-map "\e[1;2A" [S-up]))
+
 (push "/usr/local/bin" exec-path)
 
 (add-to-list 'load-path "~/.emacs.d")
